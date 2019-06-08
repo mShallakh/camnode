@@ -17,6 +17,12 @@ public class User {
     @Column
     String publicKey;
 
+    @Column(length=1024)
+    String privateKey;
+
+    @Basic(optional=true)
+    String companyURL;
+
     @Column
     int type;
 
@@ -31,6 +37,20 @@ public class User {
     public User(String name, String publicKey, int type) {
         this.name = name;
         this.publicKey = publicKey;
+        this.type = type;
+    }
+
+    public User(String name, String publicKey, String companyURL, int type) {
+        this.name = name;
+        this.publicKey = publicKey;
+        this.companyURL = companyURL;
+        this.type = type;
+    }
+
+    public User(String name, String publicKey, int type, String privateKey) {
+        this.name = name;
+        this.publicKey = publicKey;
+        this.privateKey = privateKey;
         this.type = type;
     }
 
@@ -64,5 +84,21 @@ public class User {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public String getCompanyURL() {
+        return companyURL;
+    }
+
+    public void setCompanyURL(String companyURL) {
+        this.companyURL = companyURL;
+    }
+
+    public String getPrivateKey() {
+        return privateKey;
+    }
+
+    public void setPrivateKey(String privateKey) {
+        this.privateKey = privateKey;
     }
 }

@@ -19,4 +19,8 @@ public class UserService {
     public User getUser(String id) {
         return userRepository.findByName(id);
     }
+
+    public ResponseWrapper getPrivate(String id) {
+        return new ResponseWrapper(userRepository.findByName(id).getPrivateKey());
+    }
 }

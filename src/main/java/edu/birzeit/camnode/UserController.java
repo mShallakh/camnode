@@ -22,4 +22,9 @@ public class UserController {
     public User getUser(@PathVariable("id") String id) {
         return userService.getUser(id);
     }
+
+    @RequestMapping(value = "/private/{id}/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseWrapper getPrivate(@PathVariable("id") String id){
+        return userService.getPrivate(id);
+    }
 }
